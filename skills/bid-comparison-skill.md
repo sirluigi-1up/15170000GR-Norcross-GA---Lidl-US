@@ -128,21 +128,33 @@ quantity-check findings alongside it.
 
 ## House style — PSI brand
 
+When a task calls for a formatted document (the comparison memo — not just the plain-text
+tracker rows), match Place Services Inc.'s actual report branding, the same look as the Project
+Control Tracker workbook:
+
 - **Logo top-right, red rule below the header.** The PSI logo is NOT a fixed file path — in
   a Claude Project, look for it among the Project's uploaded files (an image named something
   like `psi_logo.png`/`.jpg`, or referenced in another skill/doc in the Project). Use it if
   found. If no logo file is available anywhere in context, don't fabricate one or leave a
   broken image reference — build the document without it, keep the red header rule (`#DA251C`)
   as the visual anchor instead, and tell the person once that a logo file would complete the
-  branding if they add one to the Project's files. If a logo file is available, actually place
-  it with an image element in the header — loading the file's bytes into a variable is not the
-  same as embedding it. Render the first page and look at it before calling the document done.
+  branding if they add one to the Project's files. **If a logo file is available, actually
+  place it with an image element in the header — loading the file's bytes into a variable is
+  not the same as embedding it.** This exact mistake (reading the logo, never placing it, so
+  the document ships with no logo despite the code "using" it) has happened before. After
+  converting to PDF, render at least the first page and look at it before calling the document
+  done — confirm the logo is visibly there, not just that the code referenced a file path.
 - **Near-black ink (`#1A1A1A`) for all headings and body text**, white background throughout.
   Reserve PSI red for the header rule, the logo, and genuine flags (a scope gap, a quantity
-  mismatch, a bidder whose duration doesn't fit) — never for decoration.
-- **Field-grid layout** for the bid package header info (Package #, Scope, Due Date), and a
-  proper table — not prose — for the side-by-side bid comparison. A comparison that has to be
-  read paragraph by paragraph to find the numbers has failed its one job.
+  mismatch, a bidder whose duration doesn't fit) — never for decoration or section headers.
+- **Field-grid layout** for the bid package header info (Package #, Scope, Due Date) — a
+  two-pair grid (Label | Value | Label | Value) with a thin hairline rule under each row, no
+  vertical borders, matching the same pattern the RFI and Submittal skills use. A proper table —
+  not prose — for the side-by-side bid comparison itself; a comparison that has to be read
+  paragraph by paragraph to find the numbers has failed its one job.
+- **Sans-serif throughout**, left-aligned. Tables carry the structure — avoid long stretches of
+  unstructured prose paragraphs.
 - **Cite specifically.** Every scope-gap claim and every quantity-mismatch claim names the
   sheet, schedule, or note it came from — an unsupported "this bid seems incomplete" is not
-  useful to someone about to award a contract on it.
+  useful to someone about to award a contract on it. Say the status in words, not just color:
+  "excludes fire alarm per stated exclusions" plainly in the text, not just a red cell.
