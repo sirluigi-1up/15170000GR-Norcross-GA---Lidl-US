@@ -118,8 +118,9 @@ Excel template, not a Word form, so the math is live. It is a **horizontal, one-
 form** with ONE combined breakdown table, not separate stacked Labor/Equipment/Material tables:
 1. **Change Order Information** — two horizontal strips of label-over-field cells: Subcontractor
    Name, Subcontract #, SCO #, Date Submitted, Project Name, Project #, Submitted By; then Related
-   PCO/CO #, Related RFI #, Schedule Impact (days), Pricing Valid Until, Original Subcontract
-   Amount, Prior Approved SCOs, Trade/Scope. Type only in the light-gray cells.
+   PCO/CO #, Related RFI #, Schedule Impact (days), Pricing Valid Until, Prior Approved SCOs,
+   Trade/Scope. Type only in the light-gray cells. The template deliberately does not show the
+   sub's original contract amount — don't add it back in or reference it when filling one out.
 2. **Description of Change** — scope added/deleted/revised, the reason, and the drawings/specs
    affected.
 3. **Cost Breakdown (one table)** — each line has a **Type** (Labor / Equipment / Material /
